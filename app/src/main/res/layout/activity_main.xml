@@ -7,10 +7,44 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.timen4.ronnny.customview1.MainActivity">
-
+    tools:context=".Activity.MainActivity">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/title"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Complete Custom View Demo"
+        android:textSize="@dimen/textsize_25"
+        android:layout_centerHorizontal="true"
+        />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:textSize="@dimen/textsize_22"
+            android:id="@+id/scoreView"
+            android:text="Check Score"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height" />
+        <Button
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/textsize_22"
+            android:id="@+id/other1"
+            android:text="Check Other1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height" />
+        <Button
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/textsize_22"
+            android:id="@+id/other2"
+            android:text="Check Other2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height" />
+
+    </LinearLayout>
+
 </RelativeLayout>

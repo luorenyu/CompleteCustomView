@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CustomView1</string>
+    <string name="task">您今日的任务完成度</string>
 </resources>

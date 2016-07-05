@@ -8,25 +8,37 @@ import android.view.View;
 import android.view.WindowManager;
 
 /**
- * 该图形由园、弧形、TextView 三部分组成
+ * 该图形由两个弧形、TextView 三部分组成
  * Created by luore on 2016/6/20.
  */
 public class ScoreView extends View{
     private int mCircleXY;
-    public ScoreView(Context context) {
-        this(context,null);
+//    public ScoreView(Context context) {
+//        this(context,null);
+//    }
+//
+//    public ScoreView(Context context, AttributeSet attrs) {
+//        this(context, attrs,0);
+//    }
+//
+//    public ScoreView(Context context, AttributeSet attrs, int defStyleAttr) {
+//        super(context, attrs, defStyleAttr);
+//    }
+
+    public ScoreView(Context context,int score){
+        super(context);
+        init(score);
+
     }
 
-    public ScoreView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
-    }
+    private void init(int score) {
+        //初始黑色笔
 
-    public ScoreView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
+        //初始白色笔
 
-    private void init() {
+        //初始化圆弧所需条件
+
+
         int length=getScreenWidth(getContext());
         //1、设置要绘制的图形的参数
         mCircleXY=length/2;
