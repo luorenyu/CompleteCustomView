@@ -1,11 +1,15 @@
 package com.timen4.ronnny.customview1.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.timen4.ronnny.customview1.R;
 
 /**
  * 该图形由两个弧形、TextView 三部分组成
@@ -13,7 +17,9 @@ import android.view.WindowManager;
  */
 public class ScoreView extends View{
     private int mCircleXY;
-//    public ScoreView(Context context) {
+    private Paint whilePaint;
+    private Paint blackPafint;
+    //    public ScoreView(Context context) {
 //        this(context,null);
 //    }
 //
@@ -32,9 +38,15 @@ public class ScoreView extends View{
     }
 
     private void init(int score) {
+        Resources res = getResources();
+        //以10dp作为单位量
+        float unitage = res.getDimension(R.dimen.unitage);
         //初始黑色笔
+        blackPafint = new Paint();
+
 
         //初始白色笔
+        whilePaint = new Paint();
 
         //初始化圆弧所需条件
 

@@ -6,4 +6,5 @@
     <dimen name="textsize_25">25sp</dimen>
     <dimen name="textsize_35">35sp</dimen>
     <dimen name="button_height">60dp</dimen>
+    <dimen name="unitage">10dp</dimen>
 </resources>
