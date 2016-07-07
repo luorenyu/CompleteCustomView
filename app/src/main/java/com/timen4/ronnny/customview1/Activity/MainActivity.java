@@ -1,5 +1,6 @@
 package com.timen4.ronnny.customview1.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.scoreView:
-
+                Intent intent = new Intent(this,ScoreActivity.class);
+                startActivity(intent);
                 break;
         }
     }
