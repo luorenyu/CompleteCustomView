@@ -27,17 +27,6 @@ public class ScoreView extends View{
     private int score;
     private float arc_y = 0f;
     private int score_text;
-//    public ScoreView(Context context) {
-//        this(context,null);
-//    }
-//
-//    public ScoreView(Context context, AttributeSet attrs) {
-//        this(context, attrs,0);
-//    }
-//
-//    public ScoreView(Context context, AttributeSet attrs, int defStyleAttr) {
-//        super(context, attrs, defStyleAttr);
-//    }
 
     public ScoreView(Context context,int score){
         super(context);
@@ -88,7 +77,7 @@ public class ScoreView extends View{
         this.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                //开启子线程对绘制用到的数据进行修改
+                //2.开启子线程对绘制用到的数据进行修改
                 new DrawThread();
                 getViewTreeObserver().removeOnPreDrawListener(this);
                 return false;
@@ -102,9 +91,13 @@ public class ScoreView extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //3.绘制数据
+
         //绘制弧形
+        //黑笔画的是一个整圆所有从哪里开始都一样
         canvas.drawArc(mRectf,0,360,false,mPaint_black);
-        canvas.drawArc(mRectf,0,arc_y,false,mPaint_while);
+        //白笔之所以从-90度开始，是因为0度其实使我们的3点钟的位置，所以-90才是我们的0点的位置
+        canvas.drawArc(mRectf,-90,arc_y,false,mPaint_while);
         //绘制文本
         canvas.drawText(score_text+"",unitage*9.7f,unitage*11.0f,mPaint_while);
 
@@ -113,7 +106,7 @@ public class ScoreView extends View{
 
 
     public class DrawThread implements Runnable {
-
+        //2.开启子线程,并在绘制监听的回调方法中实现实时更新绘制数据
         private final Thread mDrawThread;
         private int statek;
         int count;
@@ -128,7 +121,7 @@ public class ScoreView extends View{
         public void run() {
             while (true) {
                 switch (statek) {
-                    case 0:
+                    case 0://给一点点缓冲的时间
                         try {
                             Thread.sleep(200);
                             statek = 1;
@@ -137,8 +130,8 @@ public class ScoreView extends View{
                         }
                         break;
                     case 1:
-                        try {
-                            Thread.sleep(150);
+                        try {//更新显示的数据
+                            Thread.sleep(20);
                             arc_y += 3.6f;
                             score_text++;
                             count++;
@@ -148,7 +141,7 @@ public class ScoreView extends View{
                         }
                         break;
                 }
-                if (count >= score)
+                if (count >= score)//满足该条件就结束循环
                     break;
             }
 

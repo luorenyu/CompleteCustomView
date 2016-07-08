@@ -20,6 +20,6 @@ public class ScoreActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         scoreView = (LinearLayout) findViewById(R.id.score_View);
-        scoreView.addView(new ScoreView(this,90));
+        scoreView.addView(new ScoreView(this,80));
     }
 }
